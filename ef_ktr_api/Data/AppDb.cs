@@ -10,7 +10,7 @@ namespace ef_ktr_api.Data
     public class AppDb : DbContext
     {
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Image> Images { get; set; }
+        public virtual DbSet<Images> Images { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product_Image> Product_Images { get; set; }
         public AppDb(DbContextOptions options) : base(options)
@@ -79,7 +79,7 @@ namespace ef_ktr_api.Data
         public virtual Category Category { get; set; }
     }
 
-    public class Image : BaseEntity
+    public class Images : BaseEntity
     {
         [Required]
         [StringLength(1000)] // để 1000 vì đường dẫn file ảnh có thể dài hơn 255 kí tự, ví dụ như link ảnh trên fb có kèm token nên link rất dài
@@ -95,11 +95,12 @@ namespace ef_ktr_api.Data
         public DateTime DateUpdate { get; set; } = DateTime.Now;
 
         public virtual Product Product { get; set; }
-        public virtual Image Image { get; set; }
+        public virtual Images Image { get; set; }
     }
     public class User
     {
         public string UserName { get; set; }
         public string Password { get; set; }
     }
+    
 }

@@ -30,7 +30,9 @@ builder.Services
     .AddScoped<IProductRepository, ProductRepository>()
     .AddScoped<IProductImageRepository, ProductImageRepository>()
     .AddScoped<ICategoryRepository, CategoryRepository>()
+    .AddScoped<IImageRepository, ImageRepository>()
     .AddScoped<IImageRepository, ImageRepository>();
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
